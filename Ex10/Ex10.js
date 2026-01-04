@@ -12,3 +12,37 @@ nome do cliente que está sendo atendido.
 O programa só deve ser encerrado ao escolher a opção 3. Caso
 contrário, ele deve retornar ao menu principal.*/
 
+let listaDeClientes = ["João", "Maria"];
+
+while (true) {
+  // Exibe menu com posição e nome de cada cliente
+  let menu = "Fila de Atendimento:\n";
+  for (let i = 0; i < listaDeClientes.length; i++) {
+    menu += `${i + 1}o ${listaDeClientes[i]}\n`;
+  }
+  menu += "\nEscolha uma opção:\n";
+  menu += "1 - Novo Cliente\n";
+  menu += "2 - Atender Cliente\n";
+  menu += "3 - Sair";
+
+  let opcao = prompt(menu);
+
+  if (opcao === "1") {
+    let novo = prompt("Digite o nome do novo cliente:");
+    if (novo) {
+      listaDeClientes.push(novo);
+    }
+  } else if (opcao === "2") {
+    if (listaDeClientes.length > 0) {
+      let atendido = listaDeClientes.shift();
+      alert("Atendendo: " + atendido);
+    } else {
+      alert("A fila está vazia.");
+    }
+  } else if (opcao === "3") {
+    alert("Encerrando programa.");
+    break;
+  } else {
+    alert("Opção inválida. Tente novamente.");
+  }
+}
