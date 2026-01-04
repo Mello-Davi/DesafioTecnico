@@ -80,3 +80,23 @@ const booksByCategory = [
   /*Escreva uma função chamada authors que retorne um array com os
   nomes de todos os autores presentes no objeto booksByCategory,
   desconsiderando autores repetidos.*/
+
+  function authors(){
+    let nomesDeAutores = [];
+
+    for(let i = 0; i < booksByCategory.length; i++){
+        let books = booksByCategory[i].books;
+
+        for(let j = 0; j < books.length; j++){
+            let autor = books[j].author;
+            
+            if(!nomesDeAutores.includes(autor)){
+                nomesDeAutores.push(autor);
+            }
+        }
+    }
+
+    return nomesDeAutores;
+}
+
+console.log(authors());
